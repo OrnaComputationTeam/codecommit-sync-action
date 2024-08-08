@@ -1,11 +1,7 @@
 #!/bin/sh
 set -ue
 
-# Load the configuration file
-. /github/workspace/config.yml
-
-# Get the repository name from the Git context
-RepositoryName=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
+RepositoryName="from-github-$GITHUB_REPOSITORY_OWNER-$GITHUB_REPOSITORY_NAME"
 AwsRegion="${INPUT_AWS_REGION}"
 CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
 

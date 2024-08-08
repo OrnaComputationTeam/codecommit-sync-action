@@ -1,8 +1,8 @@
 #!/bin/sh
-
 set -ue
 
-RepositoryName="${INPUT_REPOSITORY_NAME}"
+# Get the repository name from the Git context
+RepositoryName=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
 AwsRegion="${INPUT_AWS_REGION}"
 CodeCommitUrl="https://git-codecommit.${AwsRegion}.amazonaws.com/v1/repos/${RepositoryName}"
 

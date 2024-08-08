@@ -1,6 +1,9 @@
 #!/bin/sh
 set -ue
 
+# Load the configuration file
+. /github/workspace/config.yml
+
 # Get the repository name from the Git context
 RepositoryName=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
 AwsRegion="${INPUT_AWS_REGION}"
